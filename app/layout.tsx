@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "leaflet/dist/leaflet.css";
 
 export const metadata: Metadata = {
   title: "ชาวพนม Flood Watch",
-  description: "ศูนย์ติดตามสถานการณ์น้ำและแจ้งเหตุน้ำท่วม อ.พนมสารคาม จ.ฉะเชิงเทรา",
+  description: "ศูนย์ข้อมูลน้ำและแจ้งเหตุน้ำท่วมเพื่อพี่น้องชาวพนมสารคาม",
 };
 
 export default function RootLayout({
