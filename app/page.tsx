@@ -19,7 +19,6 @@ export default function DashboardPage() {
   const [locationName, setLocationName] = useState('');
   const [waterDepth, setWaterDepth] = useState('10-15 ซม. (ท่วมผิวทาง รถเล็กผ่านได้)');
   
-  // กำหนดพิกัดเริ่มต้นเป็นใจกลาง อ.พนมสารคาม
   const [lat, setLat] = useState('13.7455');
   const [lng, setLng] = useState('101.3480');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,7 +48,6 @@ export default function DashboardPage() {
     };
   }, []);
 
-  // ฟังก์ชันดึงพิกัดจาก GPS มือถือ/iPad อัตโนมัติ
   const handleGetCurrentLocation = () => {
     if (!navigator.geolocation) {
       alert('อุปกรณ์ของคุณไม่รองรับการระบุตำแหน่ง GPS');
@@ -178,7 +176,7 @@ export default function DashboardPage() {
               </div>
             </div>
             <MapWrapper reports={reports} onSelectLocation={handleMapSelect} />
-            <p className="text-xs text-slate-400 mt-2">* สามารถแตะบนแผนที่ หรือใช้ปุ่มดึง GPS จากมือถือเพื่อเลือกตำแหน่งได้</p>
+            <p className="text-xs text-slate-400 mt-2">* สามารถแตะบนแผนที่ หรือใช้ปุ่มดึง GPS จากโทรศัพท์เพื่อระบุตำแหน่ง</p>
           </div>
 
           <div className="bg-slate-800/90 border border-slate-700/80 p-5 rounded-2xl flex flex-col justify-between">
@@ -189,7 +187,6 @@ export default function DashboardPage() {
               <p className="text-xs text-slate-400 mb-4">ระบุจุดน้ำท่วมเพื่อแจ้งเตือนคนในพื้นที่แบบเรียลไทม์</p>
 
               <form onSubmit={handleSubmit} className="space-y-3">
-                {/* ปุ่มดึง GPS อัตโนมัติ */}
                 <div>
                   <button
                     type="button"
@@ -201,7 +198,6 @@ export default function DashboardPage() {
                     {isLocating ? 'กำลังค้นหาตำแหน่ง GPS...' : '📍 ดึงตำแหน่งปัจจุบันของฉัน (GPS)'}
                   </button>
                   
-                  {/* แสดงสถานะตำแหน่ง */}
                   <div className="mt-1.5 flex items-center gap-1.5 text-[11px] text-slate-400 px-1">
                     <MapPin className="w-3 h-3 text-emerald-400" />
                     <span>
@@ -265,3 +261,4 @@ export default function DashboardPage() {
       </main>
     </div>
   );
+}
